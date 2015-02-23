@@ -1,0 +1,20 @@
+V	central chat broadcast 
+V	remote texture 
+V	make client independent of account 
+	events 
+	dungeons 
+V	pets
+V	dyes/cloths 
+V	guild  
+	oryx 
+V	crafting system
+	item enhancement system
+	vault customisation
+	vault upgrades
+	item reforge system
+	upgrade pets system
+	fuse pets system
+	PDG implementation
+	purchasable commands
+	advanced ranks
+V	typing a V

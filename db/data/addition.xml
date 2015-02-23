@@ -1,0 +1,1003 @@
+<Addition>
+  <!--    
+    Note that the client should support 2 byte tile id, but the protocol doesn't support
+    Due to the same reason, some kind of object can only be within signed part because
+    the client read them as signed short then cast to int, making them becomes negative
+    number:
+      Character: UpdatePacket -> Signed
+           Item: ObjectStats  -> Full    BUT if it creates projectile (e.g. spell, quiver) THEN ShootPacket -> Signed
+    Environment: UpdatePacket -> Signed
+     Projectile: Client side  -> Full
+        Textile: ObjectStats  -> Full
+    Auto assign feature takes care of the limitations.
+    
+    Also to use remote texture, the client should have Parameters._-IO call patch to
+    true in assembleegameclient.objects._-ZH and the texture should stored in 32 bits
+    png format.
+    
+    And remember add 'ext' attributes
+    
+    Available Tile IDs : 
+    08 09 0a 0b 0d 0e 0f
+    10 11 12
+    20 27 28 29 2a 2b
+    37 38 39 3a 3b 3d 3e 3f
+    44 45 4a 4b 4c 4d 4e 4f
+    59 5a 5b 5c 5d 5e 5f
+    6d 6e 6f
+    71
+    86 87 88 89 8a 8b 8c 8d 8e 8f
+    ab ac ae af
+    b0 ba bb
+    c1 c2
+    db dc dd de df
+  -->
+  <Character>
+    <Object id="Forgotten Archmage of Flame" ext="true">
+      <Enemy />
+      <Class>Character</Class>
+      <RemoteTexture>
+        <Instance>local</Instance>
+        <Id>forgotten_archmage_of_flame</Id>
+      </RemoteTexture>
+      <HitSound>monster/abyss_demons_hit</HitSound>
+      <DeathSound>monster/abyss_demons_death</DeathSound>
+      <Size>150</Size>
+      <MaxHitPoints>5000</MaxHitPoints>
+      <Defense>30</Defense>
+      <Projectile id="0">
+        <ObjectId>Fire Mystic Shot</ObjectId>
+        <Damage>200</Damage>
+        <Speed>50</Speed>
+        <LifetimeMS>10000</LifetimeMS>
+        <PassesCover />
+      </Projectile>
+    </Object>
+
+    <Object id="Custom Boss" ext="true">
+      <Enemy />
+      <Class>Character</Class>
+      <RemoteTexture>
+        <Instance>production</Instance>
+        <Id>169257590</Id>
+      </RemoteTexture>
+      <Hitsound>monster/dwarves_hit</Hitsound>
+      <DeathSound>monster/dwarves_death</DeathSound>
+      <Size>150</Size>
+      <MaxHitPoints>150000</MaxHitPoints>
+      <Defense>150</Defense>
+      <Projectile id="0">
+        <ObjectId>Custom Shot 1</ObjectId>
+        <Damage>220</Damage>
+        <Speed>50</Speed>
+        <LifetimeMS>10000</LifetimeMS>
+        <PassesCover />
+      </Projectile>
+      <Projectile id="1">
+        <ObjectId>Custom Shot 2</ObjectId>
+        <Damage>0</Damage>
+        <Speed>60</Speed>
+        <LifetimeMS>5000</LifetimeMS>
+        <PassesCover />
+        <ConditionEffect duration="3">Confused</ConditionEffect>
+      </Projectile>
+    </Object>
+
+    <Object id="Test Miniboss 1" ext="true">
+      <Enemy />
+      <Class>Character</Class>
+      <AnimatedTexture>
+        <File>chars16x16rEncounters</File>
+        <Index>47</Index>
+      </AnimatedTexture>
+      <HitSound>monster/abyss_brutes_hit</HitSound>
+      <DeathSound>monster/abyss_brutes_death</DeathSound>
+      <Size>150</Size>
+      <MaxHitPoints>10000</MaxHitPoints>
+      <Defense>100</Defense>
+      <Projectile id="0">
+        <ObjectId>Steel Claw</ObjectId>
+        <Damage>100</Damage>
+        <Speed>100</Speed>
+        <LifetimeMS>1000</LifetimeMS>
+      </Projectile>
+    </Object>
+
+    <Object type="0x3000" id="Demon of Darkness" ext="true">
+      <Enemy />
+      <Class>Character</Class>
+      <AnimatedTexture>
+        <File>chars16x16dEncounters2</File>
+        <Index>41</Index>
+      </AnimatedTexture>
+      <HitSound>monster/flaming_skulls_hit</HitSound>
+      <DeathSound>monster/flaming_skulls_death</DeathSound>
+      <Size>120</Size>
+      <MaxHitPoints>95000</MaxHitPoints>
+      <Defense>50</Defense>
+      <Projectile id="0">
+        <ObjectId>Fire Bolt</ObjectId>
+        <Damage>150</Damage>
+        <Speed>50</Speed>
+        <LifetimeMS>3000</LifetimeMS>
+        <Size>120</Size>
+      </Projectile>
+      <Projectile id="1">
+        <ObjectId>Fire Mystic Shot</ObjectId>
+        <Damage>80</Damage>
+        <Speed>50</Speed>
+        <LifetimeMS>5000</LifetimeMS>
+        <ConditionEffect duration="5">Weak</ConditionEffect>
+      </Projectile>
+      <Projectile id="2">
+        <ObjectId>Fire Bolt</ObjectId>
+        <Damage>220</Damage>
+        <Speed>100</Speed>
+        <LifetimeMS>2000</LifetimeMS>
+        <ConditionEffect duration="5">Weak</ConditionEffect>
+        <ConditionEffect duration="5">Dazed</ConditionEffect>
+        <Size>120</Size>
+      </Projectile>
+      <Projectile id="3">
+        <ObjectId>Fire Bolt</ObjectId>
+        <Damage>190</Damage>
+        <Speed>50</Speed>
+        <LifetimeMS>3000</LifetimeMS>
+        <Size>120</Size>
+      </Projectile>
+      <Projectile id="4">
+        <ObjectId>Fire Mystic Shot</ObjectId>
+        <Damage>100</Damage>
+        <Speed>50</Speed>
+        <LifetimeMS>5000</LifetimeMS>
+        <ConditionEffect duration="5">Weak</ConditionEffect>
+        <ConditionEffect duration="5">Dazed</ConditionEffect>
+      </Projectile>
+      <Projectile id="5">
+        <ObjectId>Fire Bolt</ObjectId>
+        <Damage>200</Damage>
+        <Speed>100</Speed>
+        <LifetimeMS>2000</LifetimeMS>
+        <ArmorPiercing/>
+        <ConditionEffect duration="5">Weak</ConditionEffect>
+        <ConditionEffect duration="5">Dazed</ConditionEffect>
+        <Size>120</Size>
+      </Projectile>
+      <Projectile id="6">
+        <ObjectId>Fire Mystic Shot</ObjectId>
+        <Damage>100</Damage>
+        <Speed>50</Speed>
+        <LifetimeMS>5000</LifetimeMS>
+        <ConditionEffect duration="5">Weak</ConditionEffect>
+        <ConditionEffect duration="5">Dazed</ConditionEffect>
+        <Parametric/>
+      </Projectile>
+    </Object>
+    <Object type="0x3001" id="Minion of Darkness" ext="true">
+      <Enemy />
+      <Class>Character</Class>
+      <Texture>
+        <File>lofiChar28x8</File>
+        <Index>0x21</Index>
+      </Texture>
+      <HitSound>monster/abyss_demons_hit</HitSound>
+      <DeathSound>monster/abyss_demons_death</DeathSound>
+      <Size>100</Size>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <Defense>30</Defense>
+      <Projectile id="0">
+        <ObjectId>Red Fire</ObjectId>
+        <Damage>40</Damage>
+        <Speed>50</Speed>
+        <LifetimeMS>3000</LifetimeMS>
+        <ConditionEffect duration="4">Slowed</ConditionEffect>
+        <Size>140</Size>
+      </Projectile>
+    </Object>
+    <Object type="0x3002" id="Demon of Despair" ext="true">
+      <Enemy />
+      <Class>Character</Class>
+      <AnimatedTexture>
+        <File>chars16x16dEncounters2</File>
+        <Index>42</Index>
+      </AnimatedTexture>
+      <HitSound>monster/flaming_skulls_hit</HitSound>
+      <DeathSound>monster/flaming_skulls_death</DeathSound>
+      <Size>120</Size>
+      <MaxHitPoints>95000</MaxHitPoints>
+      <Defense>50</Defense>
+      <Projectile id="0">
+        <ObjectId>Pink Bolt</ObjectId>
+        <Damage>150</Damage>
+        <Speed>50</Speed>
+        <LifetimeMS>3000</LifetimeMS>
+        <Size>120</Size>
+      </Projectile>
+      <Projectile id="1">
+        <ObjectId>Rimmed Mystic Shot</ObjectId>
+        <Damage>50</Damage>
+        <Speed>50</Speed>
+        <LifetimeMS>5000</LifetimeMS>
+        <ConditionEffect duration="5">Dazed</ConditionEffect>
+      </Projectile>
+      <Projectile id="2">
+        <ObjectId>Pink Bolt</ObjectId>
+        <Damage>140</Damage>
+        <Speed>100</Speed>
+        <LifetimeMS>2000</LifetimeMS>
+        <ArmorPiercing/>
+        <Size>120</Size>
+      </Projectile>
+      <Projectile id="3">
+        <ObjectId>Pink Bolt</ObjectId>
+        <Damage>180</Damage>
+        <Speed>50</Speed>
+        <LifetimeMS>3000</LifetimeMS>
+        <Size>120</Size>
+      </Projectile>
+      <Projectile id="4">
+        <ObjectId>Rimmed Mystic Shot</ObjectId>
+        <Damage>70</Damage>
+        <Speed>50</Speed>
+        <LifetimeMS>5000</LifetimeMS>
+        <ConditionEffect duration="5">Weak</ConditionEffect>
+        <ConditionEffect duration="5">Dazed</ConditionEffect>
+      </Projectile>
+      <Projectile id="5">
+        <ObjectId>Pink Bolt</ObjectId>
+        <Damage>140</Damage>
+        <Speed>100</Speed>
+        <LifetimeMS>2000</LifetimeMS>
+        <ArmorPiercing/>
+        <ConditionEffect duration="5">Slowed</ConditionEffect>
+        <Size>120</Size>
+      </Projectile>
+      <Projectile id="6">
+        <ObjectId>Rimmed Mystic Shot</ObjectId>
+        <Damage>70</Damage>
+        <Speed>50</Speed>
+        <LifetimeMS>5000</LifetimeMS>
+        <ConditionEffect duration="5">Weak</ConditionEffect>
+        <ConditionEffect duration="5">Dazed</ConditionEffect>
+        <Parametric/>
+      </Projectile>
+    </Object>
+    <Object type="0x3003" id="Minion of Despair" ext="true">
+      <Enemy />
+      <Class>Character</Class>
+      <Texture>
+        <File>lofiChar28x8</File>
+        <Index>0x22</Index>
+      </Texture>
+      <HitSound>monster/abyss_demons_hit</HitSound>
+      <DeathSound>monster/abyss_demons_death</DeathSound>
+      <Size>100</Size>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <Defense>30</Defense>
+      <Projectile id="0">
+        <ObjectId>Purple Magic</ObjectId>
+        <Damage>90</Damage>
+        <Speed>50</Speed>
+        <LifetimeMS>3000</LifetimeMS>
+        <Size>140</Size>
+      </Projectile>
+    </Object>
+    <Object type="0x3004" id="Mysterious Head" ext="true">
+      <Enemy />
+      <Group>Mysterious</Group>
+      <Class>Character</Class>
+      <AnimatedTexture>
+        <File>chars8x8dEncounters</File>
+        <Index>21</Index>
+      </AnimatedTexture>
+      <AltTexture id="1">
+        <Texture>
+          <File>invisible</File>
+          <Index>0</Index>
+        </Texture>
+      </AltTexture>
+      <HitSound>monster/abyss_demons_hit</HitSound>
+      <DeathSound>monster/abyss_demons_death</DeathSound>
+      <Size>200</Size>
+      <MaxHitPoints>20000</MaxHitPoints>
+      <Defense>30</Defense>
+      <Projectile id="0">
+        <ObjectId>White Flame</ObjectId>
+        <Damage>100</Damage>
+        <Speed>70</Speed>
+        <LifetimeMS>3000</LifetimeMS>
+        <Size>150</Size>
+        <ConditionEffect duration="5">Dazed</ConditionEffect>
+      </Projectile>
+    </Object>
+    <Object type="0x3005" id="Mysterious Hand" ext="true">
+      <Enemy />
+      <Class>Character</Class>
+      <AnimatedTexture>
+        <File>chars8x8dEncounters</File>
+        <Index>20</Index>
+      </AnimatedTexture>
+      <AltTexture id="1">
+        <Texture>
+          <File>invisible</File>
+          <Index>0</Index>
+        </Texture>
+      </AltTexture>
+      <HitSound>monster/abyss_demons_hit</HitSound>
+      <DeathSound>monster/abyss_demons_hit</DeathSound>
+      <Size>200</Size>
+      <MaxHitPoints>10000</MaxHitPoints>
+      <Defense>10</Defense>
+      <Projectile id="0">
+        <ObjectId>Black Magic</ObjectId>
+        <Damage>80</Damage>
+        <Speed>50</Speed>
+        <LifetimeMS>3000</LifetimeMS>
+        <Size>200</Size>
+        <ConditionEffect duration="3">Weak</ConditionEffect>
+      </Projectile>
+    </Object>
+    <Object type="0x3006" id="Tower Entrance Wall" ext="true">
+      <Class>Wall</Class>
+      <Texture>
+        <File>lofiEnvironment2</File>
+        <Index>0x67</Index>
+      </Texture>
+      <Top>
+        <Texture>
+          <File>lofiEnvironment2</File>
+          <Index>0x62</Index>
+        </Texture>
+      </Top>
+      <Size>8.5</Size>
+      <Elevation>1.5</Elevation>
+      <HitSound>monster/stone_walls_hit</HitSound>
+      <DeathSound>monster/stone_walls_death</DeathSound>
+      <Static />
+    </Object>
+    <Object type="0x3007" id="Tower Outside Wall" ext="true">
+      <Class>Wall</Class>
+      <Texture>
+        <File>lofiEnvironment2</File>
+        <Index>0x67</Index>
+      </Texture>
+      <Top>
+        <Texture>
+          <File>lofiEnvironment2</File>
+          <Index>0x62</Index>
+        </Texture>
+      </Top>
+      <Size>10</Size>
+      <HitSound>monster/stone_walls_hit</HitSound>
+      <DeathSound>monster/stone_walls_death</DeathSound>
+      <Static />
+      <FullOccupy />
+      <OccupySquare />
+      <EnemyOccupySquare />
+      <BlocksSight />
+    </Object>
+    <Object type="0x3008" id="Tower Ceiling" ext="true">
+      <Class>Wall</Class>
+      <Texture>
+        <File>lofiEnvironment2</File>
+        <Index>0x67</Index>
+      </Texture>
+      <Top>
+        <Texture>
+          <File>lofiEnvironment2</File>
+          <Index>0x62</Index>
+        </Texture>
+      </Top>
+      <Size>1</Size>
+      <Elevation>8.5</Elevation>
+      <HitSound>monster/stone_walls_hit</HitSound>
+      <DeathSound>monster/stone_walls_death</DeathSound>
+      <Static />
+    </Object>
+    <Object type="0x3009" id="Lesser Tower Warrior" ext="true">
+      <Enemy />
+      <Class>Character</Class>
+      <AnimatedTexture>
+        <File>chars8x8dEncounters</File>
+        <Index>23</Index>
+      </AnimatedTexture>
+      <HitSound>monster/pirates_hit</HitSound>
+      <DeathSound>monster/pirates_death</DeathSound>
+      <Size>100</Size>
+      <MaxHitPoints>20</MaxHitPoints>
+      <Defense>1</Defense>
+      <Projectile id="0">
+        <ObjectId>Blade</ObjectId>
+        <Damage>15</Damage>
+        <Speed>40</Speed>
+        <LifetimeMS>600</LifetimeMS>
+      </Projectile>
+    </Object>
+    <Object type="0x300a" id="Greater Tower Warrior" ext="true">
+      <Enemy />
+      <Class>Character</Class>
+      <AnimatedTexture>
+        <File>chars8x8dEncounters</File>
+        <Index>22</Index>
+      </AnimatedTexture>
+      <HitSound>monster/cave_pirates_hit</HitSound>
+      <DeathSound>monster/cave_pirates_death</DeathSound>
+      <Size>100</Size>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Defense>3</Defense>
+      <Projectile id="0">
+        <ObjectId>Blade</ObjectId>
+        <Damage>25</Damage>
+        <Speed>50</Speed>
+        <LifetimeMS>600</LifetimeMS>
+      </Projectile>
+    </Object>
+    <Object type="0x300b" id="Tower Golem Boss" ext="true">
+      <Enemy />
+      <Class>Character</Class>
+      <AnimatedTexture>
+        <File>chars16x16dEncounters2</File>
+        <Index>43</Index>
+      </AnimatedTexture>
+      <HitSound>monster/golems_hit</HitSound>
+      <DeathSound>monster/golems_death</DeathSound>
+      <Size>100</Size>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <Defense>10</Defense>
+      <Projectile id="0">
+        <ObjectId>Grey Boomerang</ObjectId>
+        <Damage>80</Damage>
+        <Speed>60</Speed>
+        <LifetimeMS>2000</LifetimeMS>
+        <Boomerang/>
+      </Projectile>
+      <Quest/>
+    </Object>
+    <Object type="0x300c" id="Tower Golem" ext="true">
+      <Enemy />
+      <Class>Character</Class>
+      <AnimatedTexture>
+        <File>chars16x16dEncounters2</File>
+        <Index>43</Index>
+      </AnimatedTexture>
+      <HitSound>monster/golems_hit</HitSound>
+      <DeathSound>monster/golems_death</DeathSound>
+      <Size>100</Size>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <Defense>10</Defense>
+      <Projectile id="0">
+        <ObjectId>Grey Boomerang</ObjectId>
+        <Damage>80</Damage>
+        <Speed>60</Speed>
+        <LifetimeMS>2000</LifetimeMS>
+        <Boomerang/>
+      </Projectile>
+    </Object>
+    <Object type="0x300d" id="Tower Bandit" ext="true">
+      <Enemy />
+      <Class>Character</Class>
+      <AnimatedTexture>
+        <File>chars8x8dEncounters</File>
+        <Index>25</Index>
+      </AnimatedTexture>
+      <HitSound>monster/elves_hit</HitSound>
+      <DeathSound>monster/elves_death</DeathSound>
+      <Size>100</Size>
+      <MaxHitPoints>50</MaxHitPoints>
+      <Defense>3</Defense>
+      <Projectile id="0">
+        <ObjectId>Blade</ObjectId>
+        <Damage>15</Damage>
+        <Speed>80</Speed>
+        <LifetimeMS>500</LifetimeMS>>
+      </Projectile>
+    </Object>
+    <Object type="0x300e" id="Tower Bandit Leader" ext="true">
+      <Enemy />
+      <Class>Character</Class>
+      <AnimatedTexture>
+        <File>chars8x8dEncounters</File>
+        <Index>24</Index>
+      </AnimatedTexture>
+      <HitSound>monster/elves_hit</HitSound>
+      <DeathSound>monster/elves_death</DeathSound>
+      <Size>120</Size>
+      <MaxHitPoints>150</MaxHitPoints>
+      <Defense>4</Defense>
+      <Projectile id="0">
+        <ObjectId>Blade</ObjectId>
+        <Damage>40</Damage>
+        <Speed>80</Speed>
+        <LifetimeMS>650</LifetimeMS>
+      </Projectile>
+    </Object>
+    <Object type="0x300f" id="Scientist" ext="true">
+      <Enemy />
+      <Class>Character</Class>
+      <AnimatedTexture>
+        <File>chars8x8dEncounters</File>
+        <Index>26</Index>
+      </AnimatedTexture>
+      <HitSound>monster/undead_dwarves_hit</HitSound>
+      <DeathSound>monster/undead_dwarves_death</DeathSound>
+      <Size>100</Size>
+      <MaxHitPoints>300</MaxHitPoints>
+      <Defense>5</Defense>
+      <Projectile id="0">
+        <ObjectId>Green Magic</ObjectId>
+        <Damage>80</Damage>
+        <Speed>70</Speed>
+        <LifetimeMS>1000</LifetimeMS>
+      </Projectile>
+    </Object>
+    <Object type="0x3010" id="Super Tower Warrior" ext="true">
+      <Enemy />
+      <Class>Character</Class>
+      <AnimatedTexture>
+        <File>chars8x8dEncounters</File>
+        <Index>22</Index>
+      </AnimatedTexture>
+      <HitSound>monster/cave_pirates_hit</HitSound>
+      <DeathSound>monster/cave_pirates_death</DeathSound>
+      <Size>200</Size>
+      <MaxHitPoints>2000</MaxHitPoints>
+      <Defense>8</Defense>
+      <Projectile id="0">
+        <ObjectId>White Bolt</ObjectId>
+        <Damage>150</Damage>
+        <Speed>80</Speed>
+        <LifetimeMS>2000</LifetimeMS>
+      </Projectile>
+      <Quest/>
+    </Object>
+    <Object type="0x3011" id="Super Tower Warrior Decoy" ext="true">
+      <Enemy />
+      <Class>Character</Class>
+      <AnimatedTexture>
+        <File>chars8x8dEncounters</File>
+        <Index>22</Index>
+      </AnimatedTexture>
+      <HitSound>monster/cave_pirates_hit</HitSound>
+      <DeathSound>monster/cave_pirates_death</DeathSound>
+      <Size>200</Size>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <Defense>5</Defense>
+      <Projectile id="0">
+        <ObjectId>White Bolt</ObjectId>
+        <Damage>50</Damage>
+        <Speed>80</Speed>
+        <LifetimeMS>2000</LifetimeMS>
+      </Projectile>
+    </Object>
+  </Character>
+
+  <Item>
+    <ItemGroup type="testing">
+      <Object type="0x3619" id="Test Item" ext="true">
+        <Class>Equipment</Class>
+        <Item />
+        <Texture>
+          <File>lofiChar216x16</File>
+          <Index>0x3d</Index>
+        </Texture>
+        <ScaleValue>2.5</ScaleValue>
+        <SlotType>10</SlotType>
+        <Description>Test Item using 16x16 Texture.</Description>
+        <AdminOnly/>
+      </Object>
+
+      <Object id="Robe of Someone" ext="true">
+        <Class>Equipment</Class>
+        <Item />
+        <RemoteTexture>
+          <Instance>production</Instance>
+          <Id>1123224847</Id>
+        </RemoteTexture>
+        <SlotType>14</SlotType>
+        <Description>The invincible robe of Someone</Description>
+        <ActivateOnEquip stat="22" amount="-100">IncrementStat</ActivateOnEquip>
+        <BagType>2</BagType>
+        <FameBonus>5</FameBonus>
+        <Material />
+        <Soulbound />
+      </Object>
+
+      <Object id="Star of Invincible" ext="true">
+        <Class>Equipment</Class>
+        <Item />
+        <Texture>
+          <File>lofiProjs</File>
+          <Index>0x5e</Index>
+        </Texture>
+        <SlotType>10</SlotType>
+        <Tier>4</Tier>
+        <Description>Super Power!</Description>
+        <Sound>use_potion</Sound>
+        <InvUse />
+        <Activate effect="Invulnerable" duration="60">ConditionEffectSelf</Activate>
+        <Activate>RemoveNegativeConditionsSelf</Activate>
+        <BagType>4</BagType>
+        <Soulbound />
+      </Object>
+
+      <Object id="Amulet of No Cooldown" ext="true">
+        <Class>Equipment</Class>
+        <Item />
+        <RemoteTexture>
+          <Instance>production</Instance>
+          <Id>941232648</Id>
+        </RemoteTexture>
+        <SlotType>9</SlotType>
+        <Description>Admin Amulet.</Description>
+        <Resurrects />
+        <BagType>4</BagType>
+        <BypassCool />
+        <AdminOnly/>
+      </Object>
+
+      <Object id="Kitty" ext="true">
+        <Class>Equipment</Class>
+        <Item />
+        <AnimatedTexture>
+          <File>chars8x8rPets1</File>
+          <Index>0x02</Index>
+        </AnimatedTexture>
+        <SlotType>11</SlotType>
+        <Description>Almighty Kitty!</Description>
+        <Sound>spell/magic_nova</Sound>
+        <Projectile>
+          <ObjectId>Rainbow Magic Star Super</ObjectId>
+          <Speed>160</Speed>
+          <MinDamage>150</MinDamage>
+          <MaxDamage>200</MaxDamage>
+          <LifetimeMS>1000</LifetimeMS>
+          <PassesCover />
+          <MultiHit />
+        </Projectile>
+        <Usable />
+        <BagType>4</BagType>
+        <MpCost>0</MpCost>
+        <Activate effect="Invisible" duration="10">ConditionEffectSelf</Activate>
+        <Activate maxDistance="20">Teleport</Activate>
+        <Activate>BulletNova</Activate>
+        <Soulbound />
+      </Object>
+
+      <Object id="Potion of Maxy" ext="true">
+        <Class>Equipment</Class>
+        <Item />
+        <RemoteTexture>
+          <Instance>production</Instance>
+          <Id>925228107</Id>
+        </RemoteTexture>
+        <SlotType>10</SlotType>
+        <Tier>4</Tier>
+        <Description>A tasty, yummy, delicious extract of various stat potions.</Description>
+        <Sound>use_potion</Sound>
+        <Activate stat="20" amount="1000">IncrementStat</Activate>
+        <Activate stat="21" amount="1000">IncrementStat</Activate>
+        <Activate stat="22" amount="1000">IncrementStat</Activate>
+        <Activate stat="26" amount="1000">IncrementStat</Activate>
+        <Activate stat="27" amount="1000">IncrementStat</Activate>
+        <Activate stat="28" amount="1000">IncrementStat</Activate>
+        <Activate stat="0" amount="1000">IncrementStat</Activate>
+        <Activate stat="3" amount="1000">IncrementStat</Activate>
+        <Consumable />
+        <Potion />
+        <BagType>4</BagType>
+      </Object>
+
+      <Object id="Admin Staff" ext="true">
+        <Class>Equipment</Class>
+        <Item />
+        <RemoteTexture>
+          <Instance>production</Instance>
+          <Id>726293568</Id>
+        </RemoteTexture>
+        <SlotType>17</SlotType>
+        <Description>A godly weapon belonging to the Cult of Admin.</Description>
+        <RateOfFire>1.1</RateOfFire>
+        <Sound>monster/djinn_hit</Sound>
+        <Projectile>
+          <ObjectId>Crystal Serpent Missile</ObjectId>
+          <Speed>180</Speed>
+          <MinDamage>500</MinDamage>
+          <MaxDamage>500</MaxDamage>
+          <LifetimeMS>600</LifetimeMS>
+          <Amplitude>0.5</Amplitude>
+          <Frequency>2</Frequency>
+          <PassesCover />
+          <ParticleTrail>0xF7941D</ParticleTrail>
+        </Projectile>
+        <Soulbound />
+        <BagType>2</BagType>
+        <FameBonus>2</FameBonus>
+        <NumProjectiles>3</NumProjectiles>
+        <ArcGap>0</ArcGap>
+        <OldSound>magicShoot</OldSound>
+        <Soulbound />
+      </Object>
+      
+      <Object type="0x22fe" id="Banana" ext="true">
+        <Class>Equipment</Class>
+        <Item />
+        <Texture>
+          <File>lofiObj3</File>
+          <Index>0x22e</Index>
+        </Texture>
+        <SlotType>10</SlotType>
+        <Description>Yellow thing</Description>
+        <Sound>use_key</Sound>
+        <BagType>0</BagType>
+        <Consumable />
+        <Activate id="Banana Phone">SwitchMusic</Activate>
+      </Object>
+    </ItemGroup>
+
+    <ItemGroup type="ability">
+
+    </ItemGroup>
+
+    <ItemGroup type="key">
+      <Object id="PVP Key" ext="true">
+        <Class>Equipment</Class>
+        <Item />
+        <Texture>
+          <File>extraEnvironment</File>
+          <Index>0x000</Index>
+        </Texture>
+        <SlotType>10</SlotType>
+        <Description>A key which opens an entrance to a PVP Arena.</Description>
+        <Sound>use_key</Sound>
+        <Consumable />
+        <Material />
+        <Soulbound />
+        <Activate id="PVP Portal" ext="true">Create</Activate>
+      </Object>
+      <Object id="Gauntlet Key" ext="true">
+        <Class>Equipment</Class>
+        <Item />
+        <Texture>
+          <File>extraEnvironment</File>
+          <Index>0x000</Index>
+        </Texture>
+        <SlotType>10</SlotType>
+        <Description>A key which opens an entrance to The Gauntlet.</Description>
+        <Sound>use_key</Sound>
+        <Consumable />
+        <Material />
+        <Soulbound />
+        <Activate id="Gauntlet Portal" ext="true">Create</Activate>
+      </Object>
+      <Object type="0x22ff" id="Wine Cellar Key" ext="true">
+        <Class>Equipment</Class>
+        <Item />
+        <Texture>
+          <File>extraEnvironment</File>
+          <Index>0x000</Index>
+        </Texture>
+        <SlotType>10</SlotType>
+        <Description>A key which opens a portal to Ory'x Wine Cellar. (Open Beta Only)</Description>
+        <Sound>use_key</Sound>
+        <BagType>4</BagType>
+        <Consumable />
+        <Activate id="Wine Cellar Portal" ext="true">Create</Activate>
+      </Object>
+    </ItemGroup>
+
+    <ItemGroup type="admin">
+      <Object id="Admin Wand" ext="true">
+        <Class>Equipment</Class>
+        <Item />
+        <RemoteTexture>
+          <Instance>production</Instance>
+          <Id>1123214666</Id>
+        </RemoteTexture>
+        <SlotType>8</SlotType>
+        <Description>A wand shaped from an unknown material.</Description>
+        <RateOfFire>1</RateOfFire>
+        <Sound>weapon/wand_of_death</Sound>
+        <Projectile>
+          <ObjectId>Admin Projectile</ObjectId>
+          <Speed>180</Speed>
+          <MinDamage>800</MinDamage>
+          <MaxDamage>800</MaxDamage>
+          <LifetimeMS>500</LifetimeMS>
+          <Amplitude>0.5</Amplitude>
+          <Frequency>2</Frequency>
+          <PassesCover />
+        </Projectile>
+        <Soulbound />
+        <BagType>4</BagType>
+        <FameBonus>6</FameBonus>
+        <NumProjectiles>2</NumProjectiles>
+        <ArcGap>0</ArcGap>
+        <OldSound>magicShoot</OldSound>
+      </Object>
+
+      <Object id="Admin Tome" ext="true">
+        <Class>Equipment</Class>
+        <Item />
+        <RemoteTexture>
+          <Instance>production</Instance>
+          <Id>975896403</Id>
+        </RemoteTexture>
+        <SlotType>4</SlotType>
+        <Description>A tome written in an unknown language.</Description>
+        <Sound>spell/major_heal</Sound>
+        <ActivateOnEquip stat="26" amount="5">IncrementStat</ActivateOnEquip>
+        <ActivateOnEquip stat="27" amount="5">IncrementStat</ActivateOnEquip>
+        <Usable />
+        <BagType>4</BagType>
+        <FameBonus>7</FameBonus>
+        <MpCost>100</MpCost>
+        <Activate range="25" amount="5000">HealNova</Activate>
+        <Activate>RemoveNegativeConditionsSelf</Activate>
+      </Object>
+
+      <Object id="Admin Robe" ext="true">
+        <Class>Equipment</Class>
+        <Item />
+        <RemoteTexture>
+          <Instance>production</Instance>
+          <Id>1123224847</Id>
+        </RemoteTexture>
+        <SlotType>14</SlotType>
+        <Description>A robe sown with an unknown type of cloth.</Description>
+        <ActivateOnEquip stat="21" amount="150">IncrementStat</ActivateOnEquip>
+        <BagType>4</BagType>
+        <FameBonus>6</FameBonus>
+        <Soulbound />
+      </Object>
+
+      <Object id="Admin Amulet" ext="true">
+        <Class>Equipment</Class>
+        <Item />
+        <RemoteTexture>
+          <Instance>production</Instance>
+          <Id>970065681</Id>
+        </RemoteTexture>
+        <SlotType>9</SlotType>
+        <Description>An amulet forged from holy wood.</Description>
+        <ActivateOnEquip stat="20" amount="1000">IncrementStat</ActivateOnEquip>
+        <ActivateOnEquip stat="21" amount="1000">IncrementStat</ActivateOnEquip>
+        <ActivateOnEquip stat="22" amount="250">IncrementStat</ActivateOnEquip>
+        <ActivateOnEquip stat="26" amount="1000">IncrementStat</ActivateOnEquip>
+        <ActivateOnEquip stat="27" amount="1000">IncrementStat</ActivateOnEquip>
+        <ActivateOnEquip stat="28" amount="250">IncrementStat</ActivateOnEquip>
+        <ActivateOnEquip stat="0" amount="1000">IncrementStat</ActivateOnEquip>
+        <ActivateOnEquip stat="3" amount="1000">IncrementStat</ActivateOnEquip>
+        <Resurrects />
+        <BagType>4</BagType>
+      </Object>
+    </ItemGroup>
+  </Item>
+
+  <Environment>
+    <Object type="0x2000" id="Gauntlet Portal" ext="true">
+      <DisplayId>The Gauntlet</DisplayId>
+      <Class>Portal</Class>
+      <IntergamePortal />
+      <DungeonName>The Gauntlet</DungeonName>
+      <Texture>
+        <File>extraEnvironment</File>
+        <Index>0x100</Index>
+      </Texture>
+    </Object>
+    <Object type="0x2001" id="PVP Portal" ext="true">
+      <DisplayId>PVP Arena</DisplayId>
+      <Class>Portal</Class>
+      <IntergamePortal />
+      <DungeonName>PVP Arena</DungeonName>
+      <Texture>
+        <File>extraEnvironment</File>
+        <Index>0x100</Index>
+      </Texture>
+    </Object>
+    <Object type="0x2002" id="Testing and Stuff" ext="true">
+      <DisplayId>Testing and Stuff</DisplayId>
+      <Class>Portal</Class>
+      <IntergamePortal />
+      <DungeonName>Testing and Stuff</DungeonName>
+      <Texture>
+        <File>extraEnvironment</File>
+        <Index>0x100</Index>
+      </Texture>
+    </Object>
+    <Object type="0x2003" id="Duel Portal" ext="true">
+      <DisplayId>Duel Arena</DisplayId>
+      <Class>Portal</Class>
+      <IntergamePortal />
+      <DungeonName>Duel Arena</DungeonName>
+      <Texture>
+        <File>extraEnvironment</File>
+        <Index>0x100</Index>
+      </Texture>
+    </Object>
+    <Object type="0x2004" id="Wine Cellar Portal" ext="true">
+      <DisplayId>Wine Cellar</DisplayId>
+      <Class>Portal</Class>
+      <IntergamePortal />
+      <DungeonName>Wine Cellar</DungeonName>
+      <Texture>
+        <File>portals8x8</File>
+        <Index>0x18</Index>
+      </Texture>
+    </Object>
+    <Object type="0x2005" id="Tower Portal" ext="true">
+      <DisplayId>Ascend Tower</DisplayId>
+      <Class>Portal</Class>
+      <IntergamePortal />
+      <Party/>
+      <DungeonName>The Tower</DungeonName>
+      <Texture>
+        <File>lofiEnvironment</File><Index>0x7c</Index>
+      </Texture>
+    </Object>
+  </Environment>
+
+  <Projectile>
+    <Object id="Custom Shot 1" ext="true">
+      <Class>Projectile</Class>
+      <RemoteTexture>
+        <Instance>production</Instance>
+        <Id>15664322</Id>
+      </RemoteTexture>
+    </Object>
+
+    <Object id="Custom Shot 2" ext="true">
+      <Class>Projectile</Class>
+      <Size>75</Size>
+      <RemoteTexture>
+        <Instance>production</Instance>
+        <Id>19016304</Id>
+      </RemoteTexture>
+      <Rotation>90</Rotation>
+    </Object>
+
+    <Object id="Flame Mystic Shot" ext="true">
+      <Class>Projectile</Class>
+      <Size>50</Size>
+      <RemoteTexture>
+        <Instance>local</Instance>
+        <Id>fire_mystic_shot</Id>
+      </RemoteTexture>
+    </Object>
+
+    <Object id="Dark Fire" ext="true">
+      <Class>Projectile</Class>
+      <RemoteTexture>
+        <Instance>local</Instance>
+        <Id>dark_fire</Id>
+      </RemoteTexture>
+      <AngleCorrection>1</AngleCorrection>
+    </Object>
+
+    <Object id="Admin Projectile" ext="true">
+      <Class>Projectile</Class>
+      <RemoteTexture>
+        <Instance>production</Instance>
+        <Id>741389360</Id>
+      </RemoteTexture>
+      <AngleCorrection>1</AngleCorrection>
+    </Object>
+  </Projectile>
+
+  <Textile>
+
+  </Textile>
+
+  <Misc>
+
+  </Misc>
+
+  <Tile>
+    <Ground type="0x08" id="Firey Floor" ext="true">
+      <RemoteTexture>
+        <Instance>local</Instance>
+        <Id>firey_floor</Id>
+      </RemoteTexture>
+    </Ground>
+  </Tile>
+
+</Addition>

@@ -1,0 +1,24 @@
+V	no pause, see status effect 20
+V	quest markers
+V	some sounds glitch
+V	no /who support - easy to add
+V	no /tell?
+	That odd def bug?? Stuff dies to 2 stuns??
+V	levis are goofy/laggy
+V	Constructs dont heal - this is a feature
+V	night elves respawn fully with owner. Gets a little crazy.
+V	fulmination scepter doesn't slow 
+V	Paladin seal doesn't effect others
+V	XP is not shared to players around the killing player. You have to get the killing blow for the XP.
+V	realmmanager.cs line 39 should have false as a parameter (old style rotmg)
+V	1 pirate dropped 2 bags of loot?
+V	cyclops/red demon chests need a hp/mp pot chanced buff
+V	"Your life is an aaffront to Oryx. You will die." - red demon
+	Enemy shots pierce destructible walls, damaging players, but no red damage text shows!
+	Enemies walks through objects
+	Guild Merchants doesn’t send buy packet
+V	Can’t use Cloths?
+	Guild Directory doesn’t update after command was sent
+	Player Tags <— investigate
+	Realm player counter (RealmName (players / maxPlayers) doesn’t work
+V	Player not leaving world properly
