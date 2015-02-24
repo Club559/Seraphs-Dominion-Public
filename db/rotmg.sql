@@ -62,6 +62,7 @@ CREATE TABLE `characters` (
   `tex2` int(11) NOT NULL,
   `skin` int(11) NOT NULL DEFAULT '-1',
   `effect` varchar(64) NOT NULL,
+  `permaSkin` int(11) NOT NULL,
   `pet` int(11) NOT NULL,
   `xpboost` tinyint(1) NOT NULL,
   `floors` int(11) NOT NULL,

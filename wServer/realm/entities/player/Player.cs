@@ -774,29 +774,25 @@ namespace wServer.realm.entities
             {
                 i.SendInfo(Name + " died at Level " + Level + ", killed by " + killer);
             }*/
+            Manager.Data.AddPendingAction(db =>
+            {
 
-            try
+            });
+            using (var db = new Database(Program.Settings.GetValue("conn")))
             {
-                Manager.Data.AddPendingAction(db =>
-                {
-                    client.Character.Dead = true;
-                    SaveToCharacter();
-                    db.SaveCharacter(client.Account, client.Character);
-                    db.Death(Manager.GameData, client.Account, client.Character, killer);
-                });
-                client.SendPacket(new DeathPacket
-                {
-                    AccountId = AccountId,
-                    CharId = client.Character.CharacterId,
-                    Killer = killer
-                });
-                Owner.Timers.Add(new WorldTimer(1000, (w, t) => client.Disconnect()));
-                Owner.LeaveWorld(this);
+                client.Character.Dead = true;
+                SaveToCharacter();
+                db.SaveCharacter(client.Account, client.Character);
+                db.Death(Manager.GameData, client.Account, client.Character, killer);
             }
-            catch (Exception e)
+            client.SendPacket(new DeathPacket
             {
-                log.Error(e);
-            }
+                AccountId = AccountId,
+                CharId = client.Character.CharacterId,
+                Killer = killer
+            });
+            Owner.Timers.Add(new WorldTimer(1000, (w, t) => client.Disconnect()));
+            Owner.LeaveWorld(this);
         }
     }
 }
