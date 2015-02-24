@@ -36,7 +36,7 @@ CREATE TABLE `accounts` (
 DROP TABLE IF EXISTS `boards`;
 CREATE TABLE `boards` (
   `guildId` int(11) NOT NULL,
-  `text` varchar(1024) NOT NULL,
+  `text` text NOT NULL,
   PRIMARY KEY (`guildId`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -56,15 +56,16 @@ CREATE TABLE `characters` (
   `itemDatas` text NOT NULL,
   `hp` int(11) NOT NULL,
   `mp` int(11) NOT NULL,
-  `stats` varchar(64) NOT NULL,
+  `stats` text NOT NULL,
   `dead` tinyint(1) NOT NULL,
   `tex1` int(11) NOT NULL,
   `tex2` int(11) NOT NULL,
   `skin` int(11) NOT NULL DEFAULT '-1',
+  `effect` varchar(64) NOT NULL,
   `pet` int(11) NOT NULL,
   `xpboost` tinyint(1) NOT NULL,
   `floors` int(11) NOT NULL,
-  `fameStats` varchar(128) NOT NULL,
+  `fameStats` text NOT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deathTime` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `totalFame` int(11) NOT NULL,
@@ -95,9 +96,9 @@ CREATE TABLE `death` (
   `tex1` int(11) NOT NULL,
   `tex2` int(11) NOT NULL,
   `skin` int(11) NOT NULL DEFAULT '-1',
-  `items` varchar(128) NOT NULL,
+  `items` text NOT NULL,
   `fame` int(11) NOT NULL,
-  `fameStats` varchar(128) NOT NULL,
+  `fameStats` text NOT NULL,
   `totalFame` int(11) NOT NULL,
   `firstBorn` tinyint(1) NOT NULL,
   `killer` varchar(128) NOT NULL,

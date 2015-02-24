@@ -41,11 +41,11 @@ namespace wServer.networking.handlers
                         SendFailure(client, "Invalid Game Client.");
                         client.Disconnect();
                     }
-                    if (!acc.VerifiedEmail)
-                    {
-                        SendFailure(client, "Account is not verified.");
-                        client.Disconnect();
-                    }
+                    //if (!acc.VerifiedEmail)
+                    //{
+                    //    SendFailure(client, "Account is not verified.");
+                    //    client.Disconnect();
+                    //}
                     if (client.Manager.IsUserOnline(client, acc))
                     {
                         SendFailure(client, "Account in use. (" + client.Manager.TimeOut + " seconds until timeout)");
