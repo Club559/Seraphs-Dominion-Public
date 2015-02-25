@@ -6527,6 +6527,7 @@
     <Consumable/>
     <Soulbound/>
     <Activate id="Undead Lair Portal">Create</Activate>
+    <Price>2000</Price>
   </Object>
   <Object type="0x705" id="Pirate Cave Key">
     <Class>Equipment</Class>
@@ -6541,6 +6542,7 @@
     <Consumable/>
     <Soulbound/>
     <Activate id="Pirate Cave Portal">Create</Activate>
+    <Price>1500</Price>
   </Object>
   <Object type="0x706" id="Spider Den Key">
     <Class>Equipment</Class>
@@ -6555,6 +6557,7 @@
     <Consumable/>
     <Soulbound/>
     <Activate id="Spider Den Portal">Create</Activate>
+    <Price>1750</Price>
   </Object>
   <Object type="0x70a" id="Abyss of Demons Key">
     <Class>Equipment</Class>
@@ -6569,6 +6572,7 @@
     <Consumable/>
     <Soulbound/>
     <Activate id="Abyss of Demons Portal">Create</Activate>
+    <Price>2500</Price>
   </Object>
   <Object type="0x70b" id="Snake Pit Key">
     <Class>Equipment</Class>
@@ -6583,6 +6587,7 @@
     <Consumable/>
     <Soulbound/>
     <Activate id="Snake Pit Portal">Create</Activate>
+    <Price>2000</Price>
   </Object>
   <Object type="0x710" id="Tomb of the Ancients Key">
     <Class>Equipment</Class>
@@ -6597,6 +6602,7 @@
     <Consumable/>
     <Soulbound/>
     <Activate id="Tomb of the Ancients Portal">Create</Activate>
+    <Price>4000</Price>
   </Object>
   <Object type="0x71f" id="Sprite World Key">
     <Class>Equipment</Class>
@@ -6611,6 +6617,7 @@
     <Consumable/>
     <Soulbound/>
     <Activate id="Glowing Portal">Create</Activate>
+    <Price>2000</Price>
   </Object>
   <Object type="0x722" id="Wine Cellar Incantation">
     <Class>Equipment</Class>
@@ -6625,6 +6632,7 @@
     <Consumable/>
     <BagType>4</BagType>
     <Activate dungeonName="Wine Cellar" lockedName="Locked Wine Cellar Portal">UnlockPortal</Activate>
+    <Price>3000</Price>
   </Object>
   <Object type="0xc11" id="Ocean Trench Key">
     <Class>Equipment</Class>
@@ -6639,6 +6647,7 @@
     <Consumable/>
     <Soulbound/>
     <Activate id="Ocean Trench Portal">Create</Activate>
+    <Price>2500</Price>
   </Object>
   <Object type="0xc12" id="Coral Juice">
     <Class>Equipment</Class>
@@ -6777,6 +6786,7 @@
     <Consumable/>
     <Soulbound/>
     <Activate id="Forbidden Jungle Portal">Create</Activate>
+    <Price>1750</Price>
   </Object>
 
 
@@ -6999,6 +7009,7 @@
     <Consumable/>
     <Soulbound/>
     <Activate id="Manor of the Immortals Portal">Create</Activate>
+    <Price>2000</Price>
   </Object>
 
   <Object type="0xc24" id="Anatis Staff">
@@ -7208,6 +7219,7 @@
     <Consumable/>
     <Soulbound/>
     <Activate id="Davy Jones's Locker Portal">Create</Activate>
+    <Price>2250</Price>
   </Object>
 
   <Object type="0xc30" id="Scepter of Fulmination">
@@ -7472,6 +7484,7 @@
     <Consumable/>
     <Soulbound/>
     <Activate id="Beachzone Portal">Create</Activate>
+    <Price>1000</Price>
   </Object>
   <Object type="0xc3e" id="Gold Medal">
     <Class>Equipment</Class>
@@ -7534,6 +7547,7 @@
     <Consumable/>
     <Soulbound/>
     <Activate id="Mad Lab Portal">Create</Activate>
+    <Price>2000</Price>
   </Object>
 
   <Object type="0xc41" id="Transformation Potion">
@@ -8311,6 +8325,7 @@
     <Description>A leather strap that probably could fit around your neck.</Description>
     <BagType>4</BagType>
     <Material/>
+    <Price>20</Price>
   </Object>
   <Object type="0xc5c" id="Amulet Core">
     <Class>Equipment</Class>
@@ -8561,6 +8576,7 @@ Legend has it... The core can stop even death itself if properly used.</Descript
     <Consumable />
     <BagType>1</BagType>
     <DisplayId>Robobuddy</DisplayId>
+    <Premium/>
   </Object>
   <Object type="0x2201" id="Bandit Skin">
     <Class>Equipment</Class>
@@ -8743,6 +8759,7 @@ Legend has it... The core can stop even death itself if properly used.</Descript
     <Consumable />
     <BagType>1</BagType>
     <DisplayId>Warlock</DisplayId>
+    <Premium/>
   </Object>
   <Object type="0x220e" id="Shadow Skin">
     <Class>Equipment</Class>
@@ -8869,6 +8886,7 @@ Legend has it... The core can stop even death itself if properly used.</Descript
     <Consumable />
     <BagType>1</BagType>
     <DisplayId>Cupid</DisplayId>
+    <Premium/>
   </Object>
   <Object type="0x2217" id="Agent Skin">
     <Class>Equipment</Class>
@@ -8911,6 +8929,7 @@ Legend has it... The core can stop even death itself if properly used.</Descript
     <Consumable />
     <BagType>1</BagType>
     <DisplayId>Nun</DisplayId>
+    <Premium/>
   </Object>
   <Object type="0x221a" id="Holy Avenger Skin">
     <Class>Equipment</Class>
@@ -8939,6 +8958,7 @@ Legend has it... The core can stop even death itself if properly used.</Descript
     <Consumable />
     <BagType>1</BagType>
     <DisplayId>Kunoichi</DisplayId>
+    <Premium/>
   </Object>
   <Object type="0x221c" id="Gentleman Skin">
     <Class>Equipment</Class>
@@ -9065,6 +9085,7 @@ Legend has it... The core can stop even death itself if properly used.</Descript
     <Consumable />
     <BagType>1</BagType>
     <DisplayId>Bashing Bride</DisplayId>
+    <Premium/>
   </Object>
   <Object type="0x2225" id="Eligible Bachelor Skin">
     <Class>Equipment</Class>
@@ -9177,6 +9198,7 @@ Legend has it... The core can stop even death itself if properly used.</Descript
     <Consumable />
     <BagType>1</BagType>
     <DisplayId>King Knifeula</DisplayId>
+    <Premium/>
   </Object>
   <Object type="0x222d" id="The Unknown Skin">
     <Class>Equipment</Class>
@@ -9191,6 +9213,7 @@ Legend has it... The core can stop even death itself if properly used.</Descript
     <Consumable />
     <BagType>1</BagType>
     <DisplayId>The Unknown</DisplayId>
+    <Premium/>
   </Object>
   <Object type="0x222e" id="Hero Skin">
     <Class>Equipment</Class>
@@ -9219,6 +9242,7 @@ Legend has it... The core can stop even death itself if properly used.</Descript
     <Consumable />
     <BagType>1</BagType>
     <DisplayId>Pyramid Revenant</DisplayId>
+    <Premium/>
   </Object>
   <Object type="0x2230" id="Morning Star Skin">
     <Class>Equipment</Class>
@@ -9247,6 +9271,7 @@ Legend has it... The core can stop even death itself if properly used.</Descript
     <Consumable />
     <BagType>1</BagType>
     <DisplayId>Chemist</DisplayId>
+    <Premium/>
   </Object>
   <Object type="0x2232" id="Theresa Skin">
     <Class>Equipment</Class>
@@ -9289,6 +9314,7 @@ Legend has it... The core can stop even death itself if properly used.</Descript
     <Consumable />
     <BagType>1</BagType>
     <DisplayId>Nexus no Miko</DisplayId>
+    <Premium/>
   </Object>
   <Object type="0x2235" id="Hobbit Skin">
     <Class>Equipment</Class>
@@ -9303,6 +9329,7 @@ Legend has it... The core can stop even death itself if properly used.</Descript
     <Consumable />
     <BagType>1</BagType>
     <DisplayId>Hobbit</DisplayId>
+    <Premium/>
   </Object>
   <Object type="0x2236" id="Drow Trickster Skin">
     <Class>Equipment</Class>
@@ -9331,6 +9358,7 @@ Legend has it... The core can stop even death itself if properly used.</Descript
     <Consumable />
     <BagType>1</BagType>
     <DisplayId>Witch</DisplayId>
+    <Premium/>
   </Object>
   <Object type="0x2238" id="Experiment-7 Skin">
     <Class>Equipment</Class>
@@ -9359,6 +9387,7 @@ Legend has it... The core can stop even death itself if properly used.</Descript
     <Consumable />
     <BagType>1</BagType>
     <DisplayId>Succubus</DisplayId>
+    <Premium/>
   </Object>
 
   <Object type="0x2300" id="Unknown Essence">
@@ -9521,19 +9550,7 @@ Legend has it... The core can stop even death itself if properly used.</Descript
     <Activate>OpenCrate</Activate>
     <Potion/>
     <Consumable />
-  </Object>
-  <Object type="0x230d" id="Supply Crate">
-    <Class>Equipment</Class>
-    <Item />
-    <Texture>
-      <File>lofiEnvironment2</File>
-      <Index>0xd6</Index>
-    </Texture>
-    <SlotType>10</SlotType>
-    <Description>A crate that can be opened with a key.</Description>
-    <BagType>1</BagType>
-    <Crate/>
-    <Material/>
+    <InvUse/>
   </Object>
   <Object type="0x230e" id="Name Tag">
     <Class>Equipment</Class>
@@ -9549,19 +9566,7 @@ Legend has it... The core can stop even death itself if properly used.</Descript
     <BagType>2</BagType>
     <Activate>RenameItem</Activate>
     <Consumable />
-  </Object>
-  <Object type="0x230f" id="Unusual Crate">
-    <Class>Equipment</Class>
-    <Item />
-    <Texture>
-      <File>lofiObj3</File>
-      <Index>0x234</Index>
-    </Texture>
-    <SlotType>10</SlotType>
-    <Description>A crate that can be opened with a key. Always gives an unusual.</Description>
-    <BagType>4</BagType>
-    <Crate/>
-    <Material/>
+    <InvUse/>
   </Object>
   <Object type="0x2310" id="Skin Remover">
     <Class>Equipment</Class>
@@ -9575,6 +9580,7 @@ Legend has it... The core can stop even death itself if properly used.</Descript
     <BagType>2</BagType>
     <Activate>RemoveSkin</Activate>
     <Consumable/>
+    <InvUse/>
   </Object>
   <Object type="0x2311" id="Skin Keeper">
     <Class>Equipment</Class>
@@ -9588,6 +9594,7 @@ Legend has it... The core can stop even death itself if properly used.</Descript
     <BagType>2</BagType>
     <Activate>BindSkin</Activate>
     <Consumable/>
+    <InvUse/>
   </Object>
   <Object type="0x2312" id="Strange Part">
     <Class>Equipment</Class>
@@ -9601,5 +9608,123 @@ Legend has it... The core can stop even death itself if properly used.</Descript
     <BagType>2</BagType>
     <Activate>StrangePart</Activate>
     <Consumable/>
+    <InvUse/>
+  </Object>
+  <Object type="0x2313" id="Strangifier">
+    <Class>Equipment</Class>
+    <Item />
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x23a</Index>
+    </Texture>
+    <SlotType>10</SlotType>
+    <Description>Turns a specific item into a strange item.</Description>
+    <BagType>2</BagType>
+    <Activate>Strangify</Activate>
+    <Consumable/>
+    <InvUse/>
+  </Object>
+  <Object type="0x2318" id="Skin Disowner">
+    <Class>Equipment</Class>
+    <Item />
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x239</Index>
+    </Texture>
+    <SlotType>10</SlotType>
+    <Description>Reverses the effects of a skin keeper on a certain skin. Only works if you currently have no skin equipped.</Description>
+    <BagType>2</BagType>
+    <Activate>UnbindSkin</Activate>
+    <InvUse/>
+  </Object>
+
+
+
+  <!-- Supply Crates -->
+  <Object type="0x230d" id="Supply Crate Series #1">
+    <Class>Equipment</Class>
+    <Item />
+    <Texture>
+      <File>lofiEnvironment2</File>
+      <Index>0xd6</Index>
+    </Texture>
+    <SlotType>10</SlotType>
+    <Description>A crate that can be opened with a key. Can give you a random strangifier, skin, or a rare chance at a series #1 unusual skin!</Description>
+    <BagType>1</BagType>
+    <Crate>1</Crate>
+    <Material/>
+  </Object>
+  <Object type="0x2314" id="Supply Crate Series #2">
+    <Class>Equipment</Class>
+    <Item />
+    <Texture>
+      <File>lofiEnvironment2</File>
+      <Index>0xd6</Index>
+    </Texture>
+    <SlotType>10</SlotType>
+    <Description>A crate that can be opened with a key. Can give you a random strangifier, skin, or a rare chance at a series #2 unusual skin!</Description>
+    <BagType>1</BagType>
+    <Crate>2</Crate>
+    <Material/>
+  </Object>
+  
+  <!-- Unusual Crates -->
+  <Object type="0x230f" id="Unusual Crate">
+    <Class>Equipment</Class>
+    <Item />
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x234</Index>
+    </Texture>
+    <SlotType>10</SlotType>
+    <Description>A crate that can be opened with a key. Has a 100% chance to give an unusual skin of any series.</Description>
+    <BagType>4</BagType>
+    <Crate>0</Crate>
+    <UnusualCrate/>
+    <Material/>
+  </Object>
+  <Object type="0x2315" id="Premium Skin Crate">
+    <Class>Equipment</Class>
+    <Item />
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x234</Index>
+    </Texture>
+    <SlotType>10</SlotType>
+    <Description>A crate that can be opened with a key. Has a 100% chance to give a premium skin of any series.</Description>
+    <BagType>4</BagType>
+    <Crate>0</Crate>
+    <UnusualCrate/>
+    <Premium/>
+    <Material/>
+  </Object>
+  <Object type="0x2316" id="Premium Effect Crate">
+    <Class>Equipment</Class>
+    <Item />
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x234</Index>
+    </Texture>
+    <SlotType>10</SlotType>
+    <Description>A crate that can be opened with a key. Has a 100% chance to give an unusual skin with a premium effect.</Description>
+    <BagType>4</BagType>
+    <Crate>-1</Crate>
+    <UnusualCrate/>
+    <Material/>
+  </Object>
+  <Object type="0x2317" id="Premium Crate">
+    <Class>Equipment</Class>
+    <Item />
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x234</Index>
+    </Texture>
+    <SlotType>10</SlotType>
+    <Description>A crate that can be opened with a key. Has a 100% chance to give a premium skin with a premium effect.</Description>
+    <BagType>4</BagType>
+    <Crate>-1</Crate>
+    <UnusualCrate/>
+    <Premium/>
+    <Material/>
   </Object>
 </Objects>

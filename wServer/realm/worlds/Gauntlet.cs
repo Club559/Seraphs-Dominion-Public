@@ -10,7 +10,7 @@ namespace wServer.realm.worlds
             Name = "The Gauntlet";
             Background = 0;
             Difficulty = 1;
-            SetMusic("dungeon/Haunted Cemetary");
+            SetMusic("Haunted Cemetary");
         }
 
         protected override void Init()

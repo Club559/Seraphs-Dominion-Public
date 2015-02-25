@@ -9,7 +9,7 @@ namespace wServer.realm.worlds
         {
             Name = "Wine Cellar";
             Background = 0;
-            SetMusic("dungeon/Wine Cellar");
+            SetMusic("Wine Cellar");
             AllowTeleport = false;
         }
 

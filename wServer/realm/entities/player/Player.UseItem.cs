@@ -1165,7 +1165,7 @@ namespace wServer.realm.entities
                             {
                                 this.ItemSelect((_item, _data) =>
                                 {
-                                    return _item.Crate;
+                                    return _item.IsCrate;
                                 }, _slot =>
                                 {
                                     bool succeeded = false;
@@ -1186,9 +1186,9 @@ namespace wServer.realm.entities
                                         Random rand1 = new Random();
 
                                         int choice = rand1.Next(1, 101);
-                                        if (choice > 20 && !originalItem.ObjectId.StartsWith("Unusual"))
+                                        if (choice > 20 && !originalItem.UnusualCrate)
                                         {
-                                            if (rand1.Next(0,5) != 0)
+                                            if (rand1.Next(0, 5) != 0)
                                             {
                                                 int[] types = new int[] { 1, 2, 3, 8, 17, 24 };
                                                 List<Item> candidates = Manager.GameData.Items
@@ -1199,12 +1199,11 @@ namespace wServer.realm.entities
 
                                                 candidates.Shuffle();
 
-                                                Inventory[_slot] = candidates[0];
+                                                Inventory[_slot] = Manager.GameData.Items[Manager.GameData.IdToObjectType["Strangifier"]];
                                                 Inventory.Data[_slot] = new ItemData
                                                 {
-                                                    NamePrefix = "Strange",
-                                                    NameColor = 0xFF5A28,
-                                                    Strange = true
+                                                    NamePrefix = candidates[0].ObjectId,
+                                                    NameColor = 0xFF5A28
                                                 };
                                             }
                                             else
@@ -1235,6 +1234,14 @@ namespace wServer.realm.entities
                                                             return true;
                                                     return false;
                                                 })
+                                                .Where(_item =>
+                                                {
+                                                    if (originalItem.Premium && !_item.Value.Premium)
+                                                        return false;
+                                                    if (!originalItem.Premium && _item.Value.Premium)
+                                                        return false;
+                                                    return true;
+                                                })
                                                 .Select(_item => _item.Value)
                                                 .ToList();
 
@@ -1243,13 +1250,28 @@ namespace wServer.realm.entities
                                             Inventory[_slot] = candidates[0];
                                             Inventory.Data[_slot] = null;
 
-                                            if (rand1.Next(0, 6) == 0 || originalItem.ObjectId.StartsWith("Unusual"))
+                                            if (rand1.Next(0, 6) == 0 || originalItem.UnusualCrate)
                                             {
+                                                List<string> effects = new List<string>();
+                                                if (originalItem.Crate != 0)
+                                                    effects = UnusualEffects.Series[originalItem.Crate];
+                                                else if (!this.Client.Account.Admin)
+                                                {
+                                                    foreach (var i in UnusualEffects.Series)
+                                                        if (i.Key > 0 && i.Key <= UnusualEffects.CurrentSeries)
+                                                            effects.AddRange(i.Value);
+                                                }
+                                                else
+                                                {
+                                                    foreach (var i in UnusualEffects.Series)
+                                                        if (i.Key != 0)
+                                                            effects.AddRange(i.Value);
+                                                }
                                                 Inventory.Data[_slot] = new ItemData
                                                 {
                                                     NamePrefix = "Unusual",
                                                     NameColor = 0x8000FF,
-                                                    Effect = UnusualEffects.Types.Keys.RandomElement(rand1),
+                                                    Effect = effects.RandomElement(rand1),
                                                 };
                                                 Inventory.Data[_slot].FullEffect = UnusualEffects.Save(Inventory.Data[_slot].Effect);
                                             }
@@ -1268,7 +1290,6 @@ namespace wServer.realm.entities
                                                         Inventory.Data[_slot].Name :
                                                         Inventory[_slot].DisplayId ?? Inventory[_slot].ObjectId);
 
-                                        Console.WriteLine(msg);
                                         Owner.BroadcastPacket(new TextPacket
                                         {
                                             BubbleTime = 0,
@@ -1290,16 +1311,16 @@ namespace wServer.realm.entities
                         {
                             success = false;
                             this.ItemSelect((_item, _data) =>
+                            {
+                                return _item != item;
+                            }, _slot =>
+                            {
+                                client.SendPacket(new GetTextInputPacket
                                 {
-                                    return _item != item;
-                                }, _slot =>
-                                {
-                                    client.SendPacket(new GetTextInputPacket
-                                    {
-                                        Name = "Choose a new item name",
-                                        Action = "renameSlot" + _slot.ToString()
-                                    });
+                                    Name = "Choose a new item name",
+                                    Action = "renameSlot" + _slot.ToString()
                                 });
+                            });
                         } break;
                     case ActivateEffects.RemoveSkin:
                         {
@@ -1342,7 +1363,7 @@ namespace wServer.realm.entities
                                 return false;
                             }, _slot =>
                             {
-                                if(Inventory[_slot] == null)
+                                if (Inventory[_slot] == null)
                                 {
                                     SendError("Item no longer exists");
                                     return;
@@ -1409,6 +1430,107 @@ namespace wServer.realm.entities
                                     return;
                                 }
                                 Inventory.Data[_slot].StrangeParts.TryAdd(Inventory.Data[itemSlot].NamePrefix, 0);
+                                Inventory[itemSlot] = null;
+                                Inventory.Data[itemSlot] = null;
+
+                                UpdateCount++;
+                            });
+                        } break;
+                    case ActivateEffects.Strangify:
+                        {
+                            success = false;
+                            if (data.NamePrefix == "")
+                                break;
+                            this.ItemSelect((_item, _data) =>
+                            {
+                                return _item != null && _item.ObjectId == data.NamePrefix && ((_data != null && !_data.Strange) || (_data == null));
+                            }, _slot =>
+                            {
+                                if (Inventory[_slot] == null)
+                                {
+                                    SendError("Item no longer exists");
+                                    return;
+                                }
+                                if (Inventory[itemSlot] == null || Inventory.Data[itemSlot] == null)
+                                {
+                                    SendError("Strangifier no longer exists");
+                                    return;
+                                }
+                                bool succeeded = false;
+                                foreach (var activEff in Inventory[itemSlot].ActivateEffects)
+                                    if (activEff.Effect == ActivateEffects.Strangify)
+                                        succeeded = true;
+                                if (!succeeded || Inventory.Data[itemSlot].NamePrefix != Inventory[_slot].ObjectId)
+                                {
+                                    SendError("Invalid strangifier");
+                                    return;
+                                }
+                                if (Inventory.Data[_slot] == null)
+                                    Inventory.Data[_slot] = new ItemData();
+                                Inventory.Data[_slot].Strange = true;
+                                Inventory.Data[_slot].NamePrefix = "Strange";
+                                Inventory.Data[_slot].NameColor = 0xFF5A28;
+                                Inventory[itemSlot] = null;
+                                Inventory.Data[itemSlot] = null;
+
+                                UpdateCount++;
+                            });
+                        } break;
+                    case ActivateEffects.UnbindSkin:
+                        {
+                            success = false;
+                            if (Skin != -1)
+                            {
+                                SendError("You cannot wear a skin while unbinding a skin item.");
+                                break;
+                            }
+                            this.ItemSelect((_item, _data) =>
+                            {
+                                foreach (var activEff in _item.ActivateEffects)
+                                    if (activEff.Effect == ActivateEffects.UnlockSkin)
+                                        return _data != null && _data.Soulbound && _data.MultiUse;
+                                return false;
+                            }, _slot =>
+                            {
+                                if (Skin != -1)
+                                {
+                                    SendError("You cannot wear a skin while unbinding a skin item.");
+                                    return;
+                                }
+                                if (Inventory[_slot] == null)
+                                {
+                                    SendError("Item no longer exists");
+                                    return;
+                                }
+                                bool isSkin = false;
+                                foreach (var activEff in Inventory[_slot].ActivateEffects)
+                                    if (activEff.Effect == ActivateEffects.UnlockSkin)
+                                        isSkin = Inventory.Data[_slot] != null && Inventory.Data[_slot].Soulbound && Inventory.Data[_slot].MultiUse;
+                                if (!isSkin)
+                                {
+                                    SendError("Item is not a valid skin");
+                                    return;
+                                }
+                                if (Inventory[itemSlot] == null)
+                                {
+                                    SendError("Skin disowner no longer exists");
+                                    return;
+                                }
+                                bool succeeded = false;
+                                foreach (var activEff in Inventory[itemSlot].ActivateEffects)
+                                    if (activEff.Effect == ActivateEffects.UnbindSkin)
+                                        succeeded = true;
+                                if (!succeeded)
+                                {
+                                    SendError("Invalid skin disowner");
+                                    return;
+                                }
+                                if (Inventory.Data[_slot] != null)
+                                {
+                                    Inventory.Data[_slot].Soulbound = false;
+                                    Inventory.Data[_slot].MultiUse = false;
+                                }
+
                                 Inventory[itemSlot] = null;
                                 Inventory.Data[itemSlot] = null;
 

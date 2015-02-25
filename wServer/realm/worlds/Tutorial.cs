@@ -11,7 +11,7 @@ namespace wServer.realm.worlds
             Background = 0;
             Difficulty = 0;
             IsLimbo = isLimbo;
-            SetMusic("world/Overworld");
+            SetMusic("Overworld");
         }
 
         protected override void Init()

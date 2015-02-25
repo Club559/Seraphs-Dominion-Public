@@ -83,7 +83,7 @@ namespace wServer.logic
                     new ItemLoot("Potion of Wisdom", 1),
                     new ItemLoot("Wine Cellar Incantation", 0.01),
                     new ItemLoot("Doom Bow", 0.01),
-                    new ItemLoot("Supply Crate", 0.33)
+                    new ItemLoot("Supply Crate Series #1", 0.33)
                     )
             )
             .Init("Ghost Mage of Septavius",

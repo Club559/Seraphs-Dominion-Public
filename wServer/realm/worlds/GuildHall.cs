@@ -12,7 +12,7 @@ namespace wServer.realm.worlds
             Name = "Guild Hall";
             Background = 0;
             Difficulty = 0;
-            SetMusic("world/Guild Hall");
+            SetMusic("Guild Hall");
             AllowTeleport = true;
         }
 

@@ -8,7 +8,7 @@
             Name = "Nexus Tutorial";
             Background = 0;
             Difficulty = 0;
-            SetMusic("world/Nexus", "world/Nexus2", "world/Nexus3");
+            SetMusic("Nexus", "Nexus2", "Nexus3");
         }
 
         protected override void Init()

@@ -11,7 +11,7 @@ namespace wServer.realm.worlds
             Name = "PVP Arena";
             Background = 0;
             Difficulty = 5;
-            SetMusic("dungeon/Haunted Cemetary");
+            SetMusic("Haunted Cemetary");
             AllowTeleport = false;
             PvP = true;
         }

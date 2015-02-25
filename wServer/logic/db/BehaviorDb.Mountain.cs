@@ -29,7 +29,7 @@ namespace wServer.logic
                     new ItemLoot("Potion of Attack", 0.05),
                     new ItemLoot("Unknown Essence", 0.0001),
                     new ItemLoot("Demon Essence", 0.0005),
-                    new ItemLoot("Supply Crate", 0.01)
+                    new ItemLoot("Supply Crate Series #1", 0.01)
                     )
             )
             .Init("Sprite God",
@@ -55,7 +55,7 @@ namespace wServer.logic
                     new ItemLoot("Potion of Attack", 0.05),
                     new ItemLoot("Unknown Essence", 0.0001),
                     new ItemLoot("Sprite Essence", 0.0005),
-                    new ItemLoot("Supply Crate", 0.01)
+                    new ItemLoot("Supply Crate Series #1", 0.01)
                     )
             )
             .Init("Sprite Child",
@@ -91,7 +91,7 @@ namespace wServer.logic
                     new ItemLoot("Potion of Speed", 0.05),
                     new ItemLoot("Unknown Essence", 0.0001),
                     new ItemLoot("Snake Essence", 0.0005),
-                    new ItemLoot("Supply Crate", 0.01)
+                    new ItemLoot("Supply Crate Series #1", 0.01)
                     )
             )
             .Init("Ent God",
@@ -116,7 +116,7 @@ namespace wServer.logic
                     new ItemLoot("Potion of Defense", 0.05),
                     new ItemLoot("Unknown Essence", 0.0001),
                     new ItemLoot("Ruined Essence", 0.0005),
-                    new ItemLoot("Supply Crate", 0.01)
+                    new ItemLoot("Supply Crate Series #1", 0.01)
                     )
             )
             .Init("Beholder",
@@ -142,7 +142,7 @@ namespace wServer.logic
                     new ItemLoot("Potion of Defense", 0.05),
                     new ItemLoot("Unknown Essence", 0.0001),
                     new ItemLoot("Lost Essence", 0.0005),
-                    new ItemLoot("Supply Crate", 0.01)
+                    new ItemLoot("Supply Crate Series #1", 0.01)
                     )
             )
             .Init("Flying Brain",
@@ -167,7 +167,7 @@ namespace wServer.logic
                     new ItemLoot("Potion of Attack", 0.05),
                     new ItemLoot("Unknown Essence", 0.0001),
                     new ItemLoot("Madness Essence", 0.0005),
-                    new ItemLoot("Supply Crate", 0.01)
+                    new ItemLoot("Supply Crate Series #1", 0.01)
                     )
             )
             .Init("Slime God",
@@ -193,7 +193,7 @@ namespace wServer.logic
                     new ItemLoot("Potion of Defense", 0.05),
                     new ItemLoot("Unknown Essence", 0.0001),
                     new ItemLoot("Blood Essence", 0.0005),
-                    new ItemLoot("Supply Crate", 0.01)
+                    new ItemLoot("Supply Crate Series #1", 0.01)
                     )
             )
             .Init("Ghost God",
@@ -219,7 +219,7 @@ namespace wServer.logic
                     new ItemLoot("Potion of Speed", 0.05),
                     new ItemLoot("Unknown Essence", 0.0001),
                     new ItemLoot("Doom Essence", 0.0005),
-                    new ItemLoot("Supply Crate", 0.01)
+                    new ItemLoot("Supply Crate Series #1", 0.01)
                     )
             )
             .Init("Rock Bot",
@@ -249,7 +249,7 @@ namespace wServer.logic
                 new Threshold(0.75,
                     new ItemLoot("Unknown Essence", 0.00005),
                     new ItemLoot("Stone Essence", 0.0005),
-                    new ItemLoot("Supply Crate", 0.01)
+                    new ItemLoot("Supply Crate Series #1", 0.01)
                     )
             )
             .Init("Paper Bot",
@@ -278,7 +278,7 @@ namespace wServer.logic
                 new ItemLoot("Tincture of Life", 0.01),
                 new Threshold(0.75,
                     new ItemLoot("Unknown Essence", 0.00005),
-                    new ItemLoot("Supply Crate", 0.01)
+                    new ItemLoot("Supply Crate Series #1", 0.01)
                     )
             )
             .Init("Steel Bot",
@@ -307,7 +307,7 @@ namespace wServer.logic
                 new ItemLoot("Magic Potion", 0.01),
                 new Threshold(0.75,
                     new ItemLoot("Unknown Essence", 0.00005),
-                    new ItemLoot("Supply Crate", 0.01)
+                    new ItemLoot("Supply Crate Series #1", 0.01)
                     )
             )
             .Init("Djinn",
@@ -376,7 +376,7 @@ namespace wServer.logic
                     new ItemLoot("Potion of Speed", 0.05),
                     new ItemLoot("Unknown Essence", 0.0001),
                     new ItemLoot("Crystal Essence", 0.0005),
-                    new ItemLoot("Supply Crate", 0.01)
+                    new ItemLoot("Supply Crate Series #1", 0.01)
                     )
             )
             .Init("Leviathan",
@@ -449,7 +449,7 @@ namespace wServer.logic
                     new ItemLoot("Potion of Defense", 0.05),
                     new ItemLoot("Unknown Essence", 0.0001),
                     new ItemLoot("Coral Essence", 0.0005),
-                    new ItemLoot("Supply Crate", 0.01)
+                    new ItemLoot("Supply Crate Series #1", 0.01)
                     )
             )
             ;

@@ -271,6 +271,8 @@ namespace wServer.realm
             Chat = new ChatManager(this);
             Commands = new CommandManager(this);
 
+            UnusualEffects.Init();
+
             log.Info("Realm Manager initialized.");
         }
 

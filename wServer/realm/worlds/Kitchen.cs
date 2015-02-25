@@ -7,7 +7,7 @@
             Name = "Kitchen";
             Background = 0;
             Difficulty = 1;
-            SetMusic("dungeon/Undead Lair");
+            SetMusic("Undead Lair");
         }
 
         protected override void Init()

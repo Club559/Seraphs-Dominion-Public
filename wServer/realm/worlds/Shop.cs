@@ -8,7 +8,7 @@
             Name = "Shop";
             Background = 0;
             Difficulty = 0;
-            SetMusic("world/Vault");
+            SetMusic("Vault");
         }
 
         protected override void Init()

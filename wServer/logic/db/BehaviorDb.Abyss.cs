@@ -77,7 +77,7 @@ namespace wServer.logic
                     new ItemLoot("Potion of Vitality", 1),
                     new ItemLoot("Potion of Defense", 0.5),
                     new ItemLoot("Demon Blade", 0.01),
-                    new ItemLoot("Supply Crate", 0.33)
+                    new ItemLoot("Supply Crate Series #1", 0.33)
                     )
 			)
             .Init("Malphas Missile", 

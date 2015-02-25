@@ -74,9 +74,9 @@ public class ConditionEffect
 
     public ConditionEffect(XElement elem)
     {
-        Effect = (ConditionEffectIndex) Enum.Parse(typeof (ConditionEffectIndex), elem.Value.Replace(" ", ""));
+        Effect = (ConditionEffectIndex)Enum.Parse(typeof(ConditionEffectIndex), elem.Value.Replace(" ", ""));
         if (elem.Attribute("duration") != null)
-            DurationMS = (int) (float.Parse(elem.Attribute("duration").Value)*1000);
+            DurationMS = (int)(float.Parse(elem.Attribute("duration").Value) * 1000);
         if (elem.Attribute("range") != null)
             Range = float.Parse(elem.Attribute("range").Value);
     }
@@ -199,14 +199,16 @@ public enum ActivateEffects
     RenameItem,
     RemoveSkin,
     BindSkin,
-    StrangePart
+    StrangePart,
+    Strangify,
+    UnbindSkin
 }
 
 public class ActivateEffect
 {
     public ActivateEffect(XElement elem)
     {
-        Effect = (ActivateEffects) Enum.Parse(typeof (ActivateEffects), elem.Value);
+        Effect = (ActivateEffects)Enum.Parse(typeof(ActivateEffects), elem.Value);
         if (elem.Attribute("stat") != null)
             Stats = Utils.FromString(elem.Attribute("stat").Value);
 
@@ -216,14 +218,14 @@ public class ActivateEffect
         if (elem.Attribute("range") != null)
             Range = float.Parse(elem.Attribute("range").Value);
         if (elem.Attribute("duration") != null)
-            DurationMS = (int) (float.Parse(elem.Attribute("duration").Value)*1000);
+            DurationMS = (int)(float.Parse(elem.Attribute("duration").Value) * 1000);
 
         if (elem.Attribute("effect") != null)
             ConditionEffect =
-                (ConditionEffectIndex) Enum.Parse(typeof (ConditionEffectIndex), elem.Attribute("effect").Value);
+                (ConditionEffectIndex)Enum.Parse(typeof(ConditionEffectIndex), elem.Attribute("effect").Value);
         if (elem.Attribute("condEffect") != null)
             ConditionEffect =
-                (ConditionEffectIndex) Enum.Parse(typeof (ConditionEffectIndex), elem.Attribute("condEffect").Value);
+                (ConditionEffectIndex)Enum.Parse(typeof(ConditionEffectIndex), elem.Attribute("condEffect").Value);
 
         if (elem.Attribute("condDuration") != null)
             EffectDuration = float.Parse(elem.Attribute("condDuration").Value);
@@ -308,6 +310,8 @@ public class Item
         XElement n;
         ObjectType = type;
         ObjectId = elem.Attribute(XName.Get("id")).Value;
+        if ((n = elem.Element("Class")) != null)
+            Class = n.Value;
         SlotType = Utils.FromString(elem.Element("SlotType").Value);
         if ((n = elem.Element("Tier")) != null)
         {
@@ -387,7 +391,18 @@ public class Item
         Texture1 = (n = elem.Element("Tex1")) != null ? Convert.ToInt32(n.Value, 16) : 0;
         Texture2 = (n = elem.Element("Tex2")) != null ? Convert.ToInt32(n.Value, 16) : 0;
 
-        Crate = elem.Element("Crate") != null;
+        if ((IsCrate = elem.Element("Crate") != null))
+            Crate = Utils.FromString(elem.Element("Crate").Value);
+        else
+            Crate = 0;
+
+        UnusualCrate = elem.Element("UnusualCrate") != null;
+        Premium = elem.Element("Premium") != null;
+
+        if ((n = elem.Element("Price")) != null)
+            Price = Utils.FromString(n.Value);
+        else
+            Price = 0;
 
         var stats = new List<KeyValuePair<int, int>>();
         foreach (XElement i in elem.Elements("ActivateOnEquip"))
@@ -408,6 +423,7 @@ public class Item
 
     public ushort ObjectType { get; private set; }
     public string ObjectId { get; private set; }
+    public string Class { get; private set; }
     public int SlotType { get; private set; }
     public int Tier { get; private set; }
     public string Description { get; private set; }
@@ -434,7 +450,11 @@ public class Item
     public int Texture2 { get; private set; }
     public int? XpBoost { get; private set; }
     public int LevelRequirement { get; private set; }
-    public bool Crate { get; private set; }
+    public bool IsCrate { get; private set; }
+    public int Crate { get; private set; }
+    public bool UnusualCrate { get; private set; }
+    public bool Premium { get; private set; }
+    public int Price { get; private set; }
 
     public KeyValuePair<int, int>[] StatsBoost { get; private set; }
     public ActivateEffect[] ActivateEffects { get; private set; }

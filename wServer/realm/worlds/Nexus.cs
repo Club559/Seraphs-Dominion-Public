@@ -13,7 +13,7 @@ namespace wServer.realm.worlds
             Name = "Nexus";
             Background = 2;
             Difficulty = 0;
-            SetMusic("world/Nexus", "world/Nexus2", "world/Nexus3");
+            SetMusic("Nexus", "Nexus2", "Nexus3");
             AllowNexus = false;
             PvP = false;
         }

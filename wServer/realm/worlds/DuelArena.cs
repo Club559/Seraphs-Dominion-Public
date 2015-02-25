@@ -28,7 +28,7 @@ namespace wServer.realm.worlds
             Name = "Duel Arena";
             Background = 0;
             Difficulty = 5;
-            SetMusic("dungeon/Undead Lair");
+            SetMusic("Undead Lair");
             AllowTeleport = false;
             AllowAbilityTeleport = false;
             PvP = false;

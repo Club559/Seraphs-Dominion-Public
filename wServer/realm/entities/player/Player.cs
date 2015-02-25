@@ -405,7 +405,7 @@ namespace wServer.realm.entities
             CanNexus = Owner.AllowNexus;
             UpdateCount++;
 
-            WorldTimer pingTimer = null;
+            /*WorldTimer pingTimer = null;
             owner.Timers.Add(pingTimer = new WorldTimer(PING_PERIOD, (w, t) =>
             {
                 if (Client.Stage == ProtocalStage.Ready)
@@ -414,7 +414,7 @@ namespace wServer.realm.entities
                     pingTimer.Reset();
                     Manager.Logic.AddPendingAction(_ => w.Timers.Add(pingTimer), PendingPriority.Creation);
                 }
-            }));
+            }));*/
         }
 
         public override void Tick(RealmTime time)

@@ -9,7 +9,7 @@ namespace wServer.realm.worlds
         {
             Name = "Testing and Stuff";
             Background = 0;
-            SetMusic("dungeon/Haunted Cemetary");
+            SetMusic("Haunted Cemetary");
             AllowTeleport = true;
         }
 

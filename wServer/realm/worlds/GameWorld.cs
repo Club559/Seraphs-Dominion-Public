@@ -17,7 +17,7 @@ namespace wServer.realm.worlds
             Name = name;
             Background = 0;
             Difficulty = 0;
-            SetMusic("world/Overworld");
+            SetMusic("Overworld");
             this.oryxPresent = oryxPresent;
             this.mapId = mapId;
         }

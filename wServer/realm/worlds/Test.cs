@@ -11,7 +11,7 @@ namespace wServer.realm.worlds
             Name = "Editor";
             Background = 0;
             Difficulty = 5;
-            SetMusic("dungeon/Island");
+            SetMusic("Island");
         }
 
         public void LoadJson(string json)

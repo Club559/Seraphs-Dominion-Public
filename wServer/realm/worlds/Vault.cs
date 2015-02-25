@@ -23,7 +23,7 @@ namespace wServer.realm.worlds
             Background = 2;
             Difficulty = 0;
             IsLimbo = isLimbo;
-            SetMusic("world/Vault");
+            SetMusic("Vault");
 
             this.client = client;
         }
