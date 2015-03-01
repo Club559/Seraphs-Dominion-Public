@@ -21,11 +21,12 @@ namespace wServer.realm
         public void Say(Player src, string text)
         {
             if (src.Client.Account.Muted) return;
+            string tag = "";
             if (src.Client.Account.Tag != "")
-                src.Name = "[" + src.Client.Account.Tag + "] " + src.Name;
+                tag = "[" + src.Client.Account.Tag + "] ";
             src.Owner.BroadcastPacket(new TextPacket
             {
-                Name = (src.Client.Account.Rank >= 2 ? "@" : "") + src.Name,
+                Name = (src.Client.Account.Rank >= 2 ? "@" : "") + tag + src.Name,
                 ObjectId = src.Id,
                 Stars = src.Stars,
                 BubbleTime = 10,
