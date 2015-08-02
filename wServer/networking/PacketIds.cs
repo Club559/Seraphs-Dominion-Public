@@ -85,7 +85,9 @@
         ItemSelectResult = 89,
         ItemResult = 90,
         GetTextInput = 91,
-        TextInputResult = 92
+        TextInputResult = 92,
+
+        GiveItem = 93
 
         //Broadcast = 100
     }

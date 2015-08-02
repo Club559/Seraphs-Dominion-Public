@@ -136,6 +136,7 @@
     <Compile Include="networking\cliPackets\GuildInvitePacket.cs" />
     <Compile Include="networking\cliPackets\GuildRemovePacket.cs" />
     <Compile Include="networking\cliPackets\JoinGuildPacket.cs" />
+    <Compile Include="networking\cliPackets\GiveItemPacket.cs" />
     <Compile Include="networking\cliPackets\TextInputResultPacket.cs" />
     <Compile Include="networking\cliPackets\TeleportPacket.cs" />
     <Compile Include="networking\cliPackets\PlayerTextPacket.cs" />
@@ -196,6 +197,7 @@
     <Compile Include="networking\handlers\BuyPacketHandler.cs" />
     <Compile Include="networking\handlers\CheckCreditsPacketHandler.cs" />
     <Compile Include="networking\handlers\AOEPacketHandler.cs" />
+    <Compile Include="networking\handlers\GiveItemPacketHandler.cs" />
     <Compile Include="networking\handlers\TextInputResultPacketHandler.cs" />
     <Compile Include="networking\handlers\ItemSelectResultPacketHandler.cs" />
     <Compile Include="networking\handlers\CraftPacketHandler.cs" />
@@ -485,7 +487,7 @@
     <EmbeddedResource Include="realm\worlds\tower\floor2.wmap" />
     <Compile Include="realm\entities\player\Player.ItemSelect.cs" />
     <None Include="wServer.cfg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup />
