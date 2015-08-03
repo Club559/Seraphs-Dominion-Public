@@ -22,7 +22,7 @@ namespace wServer.networking.handlers
             if (player.Owner == null) return;
             if (player.Client.Account.Rank < 2)
             {
-                player.SendError("You are not an admin.")
+                player.SendError("You are not an admin.");
             }
             else if (!player.Manager.GameData.Items.ContainsKey((ushort)itemType))
             {
